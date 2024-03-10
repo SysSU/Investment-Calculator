@@ -3,7 +3,7 @@ export default function Calculator({userInputValues, setUserInput}) {
 
   function handleOnChange(e) {
     const { id, value } = e.target;
-    setUserInput((prev) => ({ ...prev, [id]: value }));
+    setUserInput((prev) => ({ ...prev, [id]: +value }));
   }
 
   return (
