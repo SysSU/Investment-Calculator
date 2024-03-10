@@ -1,11 +1,20 @@
 import { calculateInvestmentResults, formatter } from "../util/investment";
 
 export default function Results({ userInput }) {
-  const { initialInvestment, annualInvestment, expectedReturn, duration } =
-    userInput;
+  const { initialInvestment, duration } = userInput;
+
+  if (duration <= 0) {
+    return (
+      <section id="result">
+        <p className="center">
+          Please enter a valid duration that is greater than 0.
+        </p>
+      </section>
+    );
+  }
+
   const annualData = calculateInvestmentResults(userInput);
 
-  console.log(annualData);
   return (
     <section id="results">
       <table id="result">
